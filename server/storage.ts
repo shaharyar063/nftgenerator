@@ -1,4 +1,4 @@
-import { Collection, InsertCollection } from "@shared/schema";
+import { Collection, InsertCollection } from "../shared/schema.js";
 
 export interface IStorage {
   getCollection(id: string): Promise<Collection | undefined>;
