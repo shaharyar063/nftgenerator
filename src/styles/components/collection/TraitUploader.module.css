@@ -1,0 +1,3118 @@
+/* Main Layout */
+.container {
+    display: flex;
+    min-height: 100vh;
+    background: rgb(255, 251, 235);
+}
+
+/* Guide styling */
+.guideContainer {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty layers message */
+.emptyLayersMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    margin: 15px;
+    color: #4b5563;
+    border: 1px dashed #d1d5db;
+}
+
+.emptyLayersMessage h4 {
+    margin: 10px 0;
+    color: #374151;
+    font-size: 1.1rem;
+}
+
+.emptyLayersMessage p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.emptyLayersMessage ul {
+    text-align: left;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.emptyLayersMessage li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.emptyLayersMessage .addLayerButton {
+    margin-top: 10px;
+}
+
+/* Guide header */
+.guideHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.guideHeader h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.guideButton {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.guideButton:hover {
+    background-color: #e5e7eb;
+}
+
+.guideContent {
+    padding: 20px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.guideSection {
+    margin-bottom: 15px;
+}
+
+.guideSection h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #4b5563;
+}
+
+.guideSection p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #6b7280;
+}
+
+.guideSection ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.guideSection li {
+    margin-bottom: 6px;
+    color: #6b7280;
+}
+
+/* Optional feature indicator */
+.optionalFeature {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* Layer help text */
+.layerHelpText {
+    padding: 10px 15px;
+    margin: 0 10px 10px;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    border-left: 3px solid #60a5fa;
+}
+
+.layerHelpText p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #4b5563;
+}
+
+/* Modal description */
+.modalDescription {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+.modal {
+    width: 450px;
+    max-width: 90vw;
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: #111827;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.addButton {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addButton:hover:not(:disabled) {
+    background-color: #4338ca;
+}
+
+.addButton:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.sidebar {
+    width: 300px;
+    border-right: 1px solid rgb(252, 211, 77);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mainContent {
+    flex: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 251, 235);
+    overflow-y: auto;
+}
+
+/* Layer Management */
+.addLayerSection {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    background: white;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.addLayerInput {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background: rgb(255, 251, 235);
+    color: rgb(120, 53, 15);
+}
+
+.addLayerInput:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.addLayerButton {
+    padding: 0.5rem 1rem;
+    background: rgb(120, 53, 15);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.addLayerButton:hover {
+    background: rgb(146, 64, 14);
+    transform: translateY(-1px);
+}
+
+/* Layer List */
+.layersList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    min-height: 100px;
+    transition: background-color 0.2s ease;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(252, 211, 77) rgb(255, 251, 235);
+}
+
+.layerCard {
+    user-select: none;
+    position: relative;
+    background: white;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    touch-action: none;
+}
+
+.layerCard:hover {
+    border-color: rgb(120, 53, 15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(120, 53, 15, 0.1);
+}
+
+.layerCard.active {
+    border-color: rgb(120, 53, 15);
+    background: rgb(255, 251, 235);
+}
+
+.layerCardContent {
+    padding: 0.75rem;
+}
+
+.layerCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.layerCardLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.dragHandle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    cursor: grab;
+    margin-right: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.dragHandle:hover {
+    color: #555;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dragHandle:active {
+    cursor: grabbing;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.layerName {
+    flex: 1;
+    min-width: 0;
+    padding: 0.375rem 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.layerName:hover {
+    border-color: rgb(120, 53, 15);
+}
+
+.layerName:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.layerName::placeholder {
+    color: rgb(146, 64, 14);
+    opacity: 0.7;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.layerStats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.statBadge {
+    padding: 0.25rem 0.5rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.layerActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.actionButton {
+    padding: 0.375rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    border-color: rgb(120, 53, 15);
+}
+
+.deleteButton:hover {
+    background: rgb(254, 226, 226);
+    color: rgb(220, 38, 38);
+    border-color: rgb(220, 38, 38);
+}
+
+.isDragging {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(226, 232, 240);
+    background-color: #f8fafc;
+    transform: rotate(1deg);
+    z-index: 10;
+}
+
+.layerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+}
+
+.layerHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dragHandle {
+    cursor: grab;
+    padding: 0.25rem;
+    color: rgb(146, 64, 14);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dragHandle:active {
+    cursor: grabbing;
+}
+
+.dragHandle:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.layerName {
+    flex: 1;
+    padding: 0.375rem 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    background: white;
+}
+
+.layerName:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.layerActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.actionButton {
+    padding: 0.375rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    border-color: rgb(120, 53, 15);
+}
+
+.actionButton.delete:hover {
+    background: rgb(254, 226, 226);
+    color: rgb(220, 38, 38);
+    border-color: rgb(220, 38, 38);
+}
+
+.layerStats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: rgb(255, 251, 235);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: rgb(146, 64, 14);
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.statValue {
+    font-weight: 500;
+    color: rgb(120, 53, 15);
+}
+
+/* Main Content Area */
+.layerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.layerHeader h2 {
+    color: rgb(120, 53, 15);
+    font-size: 1.5rem;
+    font-family: serif;
+    margin: 0;
+}
+
+.headerActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.headerButton {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headerButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.headerButton.active {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.dropdownIcon {
+    transition: transform 0.3s ease;
+}
+
+.dropdownIcon.active {
+    transform: rotate(180deg);
+}
+
+.uploadSection {
+    padding: 1rem;
+    background: rgb(255, 251, 235);
+    border-bottom: 1px solid rgb(252, 211, 77);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.slideDown {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+}
+
+.dropzone {
+    padding: 2rem;
+    border: 2px dashed rgb(252, 211, 77);
+    border-radius: 12px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone:hover {
+    background: rgb(255, 251, 235);
+    border-color: rgb(120, 53, 15);
+}
+
+.dropzone p {
+    color: rgb(120, 53, 15);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.dropzone span {
+    color: rgb(146, 64, 14);
+    font-size: 0.875rem;
+}
+
+/* Traits Grid */
+.traitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    
+    /* Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(252, 211, 77) rgb(255, 251, 235);
+    flex: 1;
+    background: rgb(255, 251, 235);
+}
+
+
+.traitsGrid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.traitsGrid::-webkit-scrollbar-track {
+    background: rgb(255, 251, 235);
+}
+
+.traitsGrid::-webkit-scrollbar-thumb {
+    background: rgb(252, 211, 77);
+    border-radius: 3px;
+}
+
+.traitsGrid::-webkit-scrollbar-thumb:hover {
+    background: rgb(217, 119, 6);
+}
+
+.traitCard {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.traitCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: rgb(255, 251, 235);
+    border-bottom: 1px solid rgb(252, 211, 77);
+}
+
+.traitCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(120, 53, 15, 0.1);
+}
+
+.traitImageWrapper {
+    width: 100%;
+    height: 160px;
+    background: rgb(255, 251, 235);
+    border-bottom: 1px solid rgb(252, 211, 77);
+}
+
+.traitImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding: 12px;
+}
+
+.traitContent {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.traitHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.traitTitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgb(120, 53, 15);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.deleteButton {
+    padding: 4px;
+    background: none;
+    border: none;
+    color: rgb(120, 53, 15);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.deleteButton:hover {
+    opacity: 1;
+    color: #FF6B6B;
+}
+
+.rarityPresets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.rarityPreset {
+    padding: 3px 4px;
+    font-size: 0.6rem;
+    height: 24px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+
+
+.rarityPreset[data-rarity="super-rare"] {
+    background: rgb(217, 119, 6);
+}
+
+.rarityPreset[data-rarity="rare"] {
+    background: rgb(180, 83, 9);
+}
+
+.rarityPreset[data-rarity="uncommon"] {
+    background: rgb(146, 64, 14);
+}
+
+.rarityPreset[data-rarity="common"] {
+    background: rgb(120, 53, 15);
+}
+
+/* Active state styles */
+.rarityPreset.active {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rarityPreset.active[data-rarity="super-rare"] {
+    background: rgb(234, 88, 12);
+    box-shadow: 0 2px 4px rgba(234, 88, 12, 0.2);
+}
+
+.rarityPreset.active[data-rarity="rare"] {
+    background: rgb(194, 65, 12);
+    box-shadow: 0 2px 4px rgba(194, 65, 12, 0.2);
+}
+
+.rarityPreset.active[data-rarity="uncommon"] {
+    background: rgb(159, 48, 18);
+    box-shadow: 0 2px 4px rgba(159, 48, 18, 0.2);
+}
+
+.rarityPreset.active[data-rarity="common"] {
+    background: rgb(133, 37, 18);
+    box-shadow: 0 2px 4px rgba(133, 37, 18, 0.2);
+}
+
+.rarityPreset:hover {
+    opacity: 1;
+}
+
+
+
+
+
+.rarityPercentage {
+    position: absolute;
+    right: 0;
+    top: -16px;
+    font-size: 0.6rem;
+    color: rgb(120, 53, 15);
+}
+
+.rarityControls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weightButtons {
+    display: flex;
+    gap: 4px;
+}
+
+.weightButton {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.weightButton:hover {
+    opacity: 1 !important;
+    transform: translateY(-1px);
+}
+
+.weightButtonActive {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+
+
+.weightValue {
+    font-size: 0.75rem;
+    font-weight: 500;
+    min-width: 70px;
+}
+
+.traitDeleteButton {
+    padding: 4px;
+    background: none;
+    border: none;
+    color: rgb(120, 53, 15);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.traitDeleteButton:hover {
+    opacity: 1;
+    color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Rarity Controls */
+.rarityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+
+
+/* No Layer Selected State */
+.noLayerSelected {
+    text-align: center;
+    padding: 3rem;
+    color: rgb(146, 64, 14);
+}
+
+.noLayerSelected h2 {
+    color: rgb(120, 53, 15);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: serif;
+}
+
+/* Continue Button */
+.nextButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    min-width: 180px;
+    border: none;
+    border-radius: 8px;
+    background: rgb(120, 53, 15);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.nextButton:hover:not(:disabled) {
+    background: rgb(146, 64, 14);
+    transform: translateY(-1px);
+}
+
+.nextButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgb(120, 53, 15);
+    transform: none;
+}
+
+.buttonIcon {
+    transition: transform 0.2s;
+    width: 16px;
+    height: 16px;
+}
+
+.nextButton:hover:not(:disabled) .buttonIcon {
+    transform: translateX(2px);
+}
+
+/* Settings Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(120, 53, 15, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.settingsModal {
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgb(252, 211, 77);
+    box-shadow: 0 20px 25px -5px rgba(120, 53, 15, 0.1);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    background: white;
+}
+
+.modalHeader h3 {
+    color: rgb(120, 53, 15);
+    font-size: 1.25rem;
+    font-family: serif;
+    margin: 0;
+}
+
+.closeButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    background: rgb(254, 243, 199);
+}
+
+/* Settings Tabs */
+.tabList {
+    display: flex;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    background: white;
+}
+
+.tab {
+    padding: 0.5rem 1rem;
+    color: rgb(146, 64, 14);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    background: rgb(255, 251, 235);
+}
+
+.tab.active {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+}
+
+/* Settings Content */
+.settingsContent {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.settingGroup {
+    margin-bottom: 1.5rem;
+}
+
+.settingGroup h4 {
+    color: rgb(120, 53, 15);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.settingRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.settingLabel {
+    min-width: 120px;
+    color: rgb(146, 64, 14);
+    font-size: 0.875rem;
+}
+
+.settingInput {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    background: white;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+}
+
+.settingInput:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgb(252, 211, 77);
+    }
+
+    .settingsModal {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    
+
+    .settingRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .settingLabel {
+        min-width: auto;
+    }
+
+    .rarityPresets {
+        width: 100%;
+    }
+
+    .rarityPreset {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Settings Modal and Fields */
+.settingField {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+}
+
+.settingField label {
+    display: block;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.settingInput {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    background: white;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+}
+
+.settingInput:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+/* Rarity Slider in Settings */
+.raritySliderContainer {
+    width: 100%;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.rarityHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+.rarityIndicators {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+.traitControls {
+    display: flex;
+    gap: 12px;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.traitPreview {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.traitPreview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.traitDetails {
+    flex: 1;
+}
+
+.traitName {
+    font-weight: 500;
+    color: rgb(120, 53, 15);
+    margin-bottom: 4px;
+}
+
+/* Tab Content Styles */
+.tabContent {
+    padding: 1rem;
+    background: white;
+    border-radius: 0 0 12px 12px;
+}
+
+.assetsSection {
+    padding: 16px;
+}
+
+.uploadArea {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 2px dashed rgb(252, 211, 77);
+    border-radius: 12px;
+    background: rgb(255, 251, 235);
+    text-align: center;
+}
+
+.uploadButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    color: rgb(120, 53, 15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.traitsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    gap: 30px;
+    padding: 12px;
+    justify-content: center;
+}
+
+.traitRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    gap: 12px;
+    border: 1px solid rgb(252, 211, 77);
+    transition: transform 0.2s ease;
+    width: 150px;
+}
+
+.traitRow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(120, 53, 15, 0.1);
+}
+
+.traitImageWrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+    background: rgb(255, 251, 235);
+    overflow: hidden;
+}
+
+.traitImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+
+
+.raritySelect {
+    padding: 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    background: white;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.traitRarity {
+    padding: 0.375rem 0.75rem;
+    background: rgb(254, 243, 199);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.tabButtons {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    background: rgb(255, 251, 235);
+}
+
+.tabButton {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.tabButton:hover {
+    background: rgb(254, 243, 199);
+}
+
+.tabButton.active {
+    background: rgb(254, 243, 199);
+    border-color: rgb(120, 53, 15);
+    color: rgb(120, 53, 15);
+}
+
+.noAssetsMessage {
+    text-align: center;
+    padding: 2rem;
+    color: rgb(146, 64, 14);
+    background: rgb(255, 251, 235);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.rarityPresetButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.375rem;
+    margin-bottom: 0.5rem;
+}
+
+.rarityPresetButton {
+    padding: 0.25rem 0.375rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.rarityPresetButton:hover {
+    transform: translateY(-1px);
+}
+
+.rarityPresetButton.common {
+    background: rgb(255, 251, 235);
+    color: rgb(146, 64, 14);
+}
+
+.rarityPresetButton.rare {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.rarityPresetButton.epic {
+    background: rgb(253, 230, 138);
+    color: rgb(120, 53, 15);
+}
+
+.rarityPresetButton.legendary {
+    background: rgb(252, 211, 77);
+    color: rgb(120, 53, 15);
+}
+
+.rarityPresetButton.active {
+    border-color: rgb(120, 53, 15);
+    border-width: 2px;
+}
+
+
+
+
+
+.layerTitle {
+    margin-bottom: 1.5rem;
+}
+
+.layerTitleInput {
+    font-size: 1.5rem;
+    font-family: serif;
+    color: rgb(120, 53, 15);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.layerTitleInput:hover {
+    background: rgb(255, 251, 235);
+    border-color: rgb(252, 211, 77);
+}
+
+.layerTitleInput:focus {
+    outline: none;
+    background: white;
+    border-color: rgb(252, 211, 77);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.layerName {
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.previewSection {
+    margin: 2rem 0;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.previewHeader {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.previewHeader h3 {
+    color: rgb(120, 53, 15);
+    font-size: 1.25rem;
+    font-family: serif;
+    margin: 0;
+}
+
+.refreshButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refreshButton:hover {
+    background: rgb(254, 243, 199);
+}
+
+.previewCanvas {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background: rgb(255, 251, 235);
+}
+
+.previewStack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.previewLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.emptyPreview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(146, 64, 14);
+}
+
+/* Add these styles for drag and drop */
+.isDragging {
+    background: rgb(255, 251, 235) !important;
+    border: 2px solid rgb(120, 53, 15) !important;
+    box-shadow: 0 4px 12px rgba(120, 53, 15, 0.15);
+    opacity: 0.8;
+}
+
+.layerContent {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+}
+
+.previewButton {
+    padding: 0.375rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.previewButton.active {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.previewStrip {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 12px rgba(120, 53, 15, 0.1);
+    animation: slideDown 0.2s ease-out;
+}
+
+.previewImages {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    overflow-x: auto;
+    padding-bottom: 4px; /* Space for potential scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(252, 211, 77) rgb(255, 251, 235);
+}
+
+.previewImages::-webkit-scrollbar {
+    height: 4px;
+}
+
+.previewImages::-webkit-scrollbar-track {
+    background: rgb(255, 251, 235);
+    border-radius: 2px;
+}
+
+.previewImages::-webkit-scrollbar-thumb {
+    background: rgb(252, 211, 77);
+    border-radius: 2px;
+}
+
+.previewItem {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgb(255, 251, 235);
+    position: relative;
+}
+
+.previewItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.refreshStripButton {
+    padding: 0.375rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.refreshStripButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settingWithHelp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.settingToggleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggleSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(254, 243, 199);
+    transition: .3s;
+    border-radius: 24px;
+    border: 1px solid rgb(252, 211, 77);
+}
+
+.toggleSlider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: rgb(120, 53, 15);
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+    background-color: rgb(254, 243, 199);
+    border-color: rgb(120, 53, 15);
+}
+
+.toggleSwitch input:checked + .toggleSlider:before {
+    transform: translateX(20px);
+}
+
+.toggleLabel {
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    min-width: 120px;
+}
+
+.settingHelp {
+    display: block;
+    font-size: 0.75rem;
+    color: rgb(146, 64, 14);
+    margin-top: 0.25rem;
+}
+
+/* Add these new styles */
+.layerItem[data-hidden-metadata="true"] {
+    position: relative;
+}
+
+.layerItem[data-hidden-metadata="true"]::after {
+    content: "Hidden in Metadata";
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    font-size: 0.625rem;
+    padding: 0.125rem 0.25rem;
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    border-radius: 4px;
+    border: 1px solid rgb(252, 211, 77);
+    pointer-events: none;
+}
+
+/* Update the existing styles */
+.settingLabel {
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerLeft h2 {
+    margin: 0;
+    color: rgb(120, 53, 15);
+    font-family: serif;
+}
+
+.headerActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Update existing button styles if needed */
+.headerButton {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headerButton:hover,
+.headerButton.active {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.rulesSection {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgb(252, 211, 77);
+}
+
+.ruleDescription {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgb(255, 251, 235);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    color: rgb(120, 53, 15);
+}
+
+.traitSelectGroup {
+    margin-bottom: 1.5rem;
+}
+
+.traitSelectGroup label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+}
+
+.traitSelectBox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+    padding: 0.75rem;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.traitOption {
+    position: relative;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100px;
+}
+
+.traitOption:hover {
+    border-color: rgb(120, 53, 15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(120, 53, 15, 0.1);
+}
+
+.traitOption img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: rgb(255, 251, 235);
+    padding: 0.25rem;
+}
+
+.traitOption span {
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.traitOption .layerName {
+    font-size: 0.6rem;
+    color: rgb(146, 64, 14);
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Existing Rules Display */
+.existingRules {
+    margin-top: 2rem;
+}
+
+.existingRules h3 {
+    color: rgb(120, 53, 15);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.ruleItem {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.ruleItem:hover {
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 2px 8px rgba(120, 53, 15, 0.1);
+}
+
+.ruleContent {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ruleTraitDisplay {
+    cursor: pointer;
+    padding: 0.75rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.ruleTraitDisplay:hover {
+    border-color: rgb(120, 53, 15);
+    transform: translateY(-1px);
+}
+
+.ruleConditionButton {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ruleConditionButton:hover {
+    background: rgb(254, 243, 199);
+    border-color: rgb(120, 53, 15);
+}
+
+.removeRuleButton {
+    padding: 0.5rem;
+    color: rgb(146, 64, 14);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.removeRuleButton:hover {
+    color: rgb(220, 38, 38);
+    background: rgb(254, 243, 199);
+}
+
+.ruleTypeSelection {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+}
+
+.ruleTypeButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.ruleTypeButton {
+    flex: 1;
+    padding: 0.75rem;
+    background: white;
+    border: 2px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ruleTypeButton:hover {
+    border-color: rgb(120, 53, 15);
+    transform: translateY(-1px);
+}
+
+.ruleTypeButton.selected {
+    background: rgb(254, 243, 199);
+    border-color: rgb(120, 53, 15);
+}
+
+.layerName {
+    display: block;
+    font-size: 0.625rem;
+    color: rgb(146, 64, 14);
+    margin-top: 0.25rem;
+}
+
+/* Helper component for displaying traits */
+.traitDisplay {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    min-width: 200px;
+}
+
+.traitDisplay img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.traitDisplay .traitInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.traitDisplay .traitName {
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.traitDisplay .layerName {
+    color: rgb(146, 64, 14);
+    font-size: 0.75rem;
+}
+
+.ruleType {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-width: 120px;
+    text-align: center;
+}
+
+.ruleActions {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.addRuleButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgb(120, 53, 15);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.addRuleButton:hover {
+    background: rgb(146, 64, 14);
+    transform: translateY(-1px);
+}
+
+.addRuleButton:disabled {
+    background: rgb(254, 243, 199);
+    color: rgb(146, 64, 14);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.traitOption.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.noTraitsAvailable {
+    padding: 2rem;
+    text-align: center;
+    color: rgb(146, 64, 14);
+    background: rgb(255, 251, 235);
+    border: 1px dashed rgb(252, 211, 77);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.layerNameWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.layerLabel {
+    font-size: 0.875rem;
+    color: rgb(146, 64, 14);
+    white-space: nowrap;
+}
+
+.layerNameInput {
+    flex: 1;
+    min-width: 0;
+    padding: 0.375rem 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.layerNameInput:hover {
+    border-color: rgb(120, 53, 15);
+}
+
+.layerNameInput:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.layerNameInput::placeholder {
+    color: rgb(146, 64, 14);
+    opacity: 0.7;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.layerItem {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.layerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    gap: 0.75rem;
+}
+
+.layerCard {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.layerCard:hover {
+    border-color: rgb(120, 53, 15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(120, 53, 15, 0.1);
+}
+
+.layerCard.active {
+    border-color: rgb(120, 53, 15);
+    background: rgb(255, 251, 235);
+}
+
+.layerCardContent {
+    padding: 0.75rem;
+}
+
+.layerCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.layerCardLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.dragHandle {
+    cursor: grab;
+    padding: 0.25rem;
+    color: rgb(146, 64, 14);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dragHandle:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+}
+
+.layerCardTitle {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(120, 53, 15);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.layerCardActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.actionButton {
+    padding: 0.375rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    color: rgb(146, 64, 14);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionButton:hover {
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    border-color: rgb(120, 53, 15);
+}
+
+.deleteButton:hover {
+    background: rgb(254, 226, 226);
+    color: rgb(220, 38, 38);
+    border-color: rgb(220, 38, 38);
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(120, 53, 15);
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.input:hover {
+    border-color: rgb(120, 53, 15);
+}
+
+.input:focus {
+    outline: none;
+    border-color: rgb(120, 53, 15);
+    box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.1);
+}
+
+.layerCardStats {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.statBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.statLabel {
+    color: rgb(146, 64, 14);
+}
+
+.statValue {
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+}
+
+.layerOrderButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-right: 8px;
+}
+
+.orderButton {
+    padding: 2px 6px;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    color: #64748b;
+    transition: all 0.2s;
+}
+
+.orderButton:hover:not(:disabled) {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.orderButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.layerCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebarHeader {
+    border-bottom: 1px solid rgb(252, 211, 77);
+}
+
+.clearButton {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgb(254, 226, 226);
+    border: none;
+    color: rgb(220, 38, 38);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+}
+
+.clearButton:hover {
+    background: rgb(254, 202, 202);
+}
+
+.layersList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    min-height: 100px;
+}
+
+.isDraggingOver {
+    background: rgb(255, 251, 235);
+    border-radius: 8px;
+}
+
+.actions {
+    padding: 1.5rem 2rem;
+    background: white;
+    border-top: 1px solid rgb(252, 211, 77);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.leftActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    min-width: 120px;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 8px;
+    background: white;
+    color: rgb(120, 53, 15);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.backButton:hover:not(:disabled) {
+    background: rgb(254, 243, 199);
+}
+
+.nextButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    min-width: 180px;
+    border: none;
+    border-radius: 8px;
+    background: rgb(120, 53, 15);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.nextButton:hover:not(:disabled) {
+    background: rgb(146, 64, 14);
+    transform: translateY(-1px);
+}
+
+.nextButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgb(120, 53, 15);
+    transform: none;
+}
+
+.buttonIcon {
+    transition: transform 0.2s;
+    width: 16px;
+    height: 16px;
+}
+
+.nextButton:hover:not(:disabled) .buttonIcon {
+    transform: translateX(2px);
+}
+
+/* Add these new styles for the default background layer */
+.defaultLayer {
+    background: rgb(255, 251, 235);
+    border: 1px dashed rgb(252, 211, 77);
+}
+
+.defaultLayerBadge {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.25rem;
+    background: rgb(254, 243, 199);
+    color: rgb(120, 53, 15);
+    border-radius: 4px;
+    border: 1px solid rgb(252, 211, 77);
+    margin-left: 0.5rem;
+}
+
+/* Update the existing layerCard styles */
+.layerCard {
+    /* ... existing styles ... */
+    position: relative;
+}
+
+.layerCard.defaultLayer {
+    border-style: dashed;
+}
+
+.layerCardTitle.defaultLayer {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.rarityHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rarityLabel {
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid currentColor;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid currentColor;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+
+
+
+.traitCard {
+  position: relative;
+}
+
+.traitNameInput {
+  width: 95%;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: rgb(120, 53, 15);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.traitNameInput:hover {
+  border-color: rgb(252, 211, 77);
+}
+
+.traitNameInput:focus {
+  background: white;
+  border-color: rgb(120, 53, 15);
+  outline: none;
+}
+
+.deleteTraitButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgb(252, 211, 77);
+  border-radius: 4px;
+  color: rgb(220, 38, 38);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.traitCard:hover .deleteTraitButton {
+  opacity: 1;
+}
+
+.deleteTraitButton:hover {
+  background: rgb(254, 226, 226);
+  border-color: rgb(220, 38, 38);
+  transform: scale(1.05);
+}
+
+/* Update the rarity container */
+.rarityContainer {
+    margin-top: 2px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.raritySlider {
+    -webkit-appearance: none;
+    width: calc(100% - 35px);
+    height: 2px;
+    background: rgb(254, 243, 199);
+    border-radius: 1px;
+    outline: none;
+    margin: 4px 5px;
+    position: relative;
+    left: -1px;
+}
+
+.rarityValue {
+    font-size: 0.7rem;
+    color: rgb(120, 53, 15);
+    min-width: 28px;
+    text-align: right;
+    margin-left: 2px;
+    font-weight: 500;
+    background: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid rgb(252, 211, 77);
+}
+
+.raritySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(120, 53, 15);
+    border: 1px solid white;
+    box-shadow: 0 0 0 1px rgb(252, 211, 77);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.raritySlider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(120, 53, 15);
+    border: 1px solid white;
+    box-shadow: 0 0 0 1px rgb(252, 211, 77);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Add character selector styles */
+.characterSelector {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(252, 211, 77);
+    padding-bottom: 1rem;
+}
+
+.charactersHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.charactersHeader h3 {
+    color: rgb(120, 53, 15);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.characterTabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.characterTab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    color: rgb(120, 53, 15);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.characterTab.active {
+    background: rgb(255, 251, 235);
+    border-color: rgb(120, 53, 15);
+}
+
+.characterTab:hover {
+    background: rgb(255, 251, 235);
+}
+
+.characterSupply {
+    background: rgb(254, 243, 199);
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: rgb(120, 53, 15);
+}
+
+.deleteCharacterButton {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: rgb(120, 53, 15);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.deleteCharacterButton:hover {
+    opacity: 1;
+    color: rgb(220, 38, 38);
+}
+
+.addCharacterButton {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    color: rgb(120, 53, 15);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.addCharacterButton:hover {
+    background: rgb(255, 251, 235);
+    border-color: rgb(120, 53, 15);
+}
+
+.characterForm {
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.formRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+}
+
+.inputSmall {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.cancelButton,
+.saveButton {
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancelButton {
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    color: rgb(120, 53, 15);
+}
+
+.saveButton {
+    background: rgb(120, 53, 15);
+    border: none;
+    color: white;
+}
+
+.cancelButton:hover {
+    background: rgb(254, 243, 199);
+}
+
+.saveButton:hover {
+    background: rgb(146, 64, 14);
+}
+
+/* Layout styles */
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.layersPanel {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.layersHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.layersHeader h3 {
+    color: rgb(120, 53, 15);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.addLayerButton {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background: white;
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 4px;
+    color: rgb(120, 53, 15);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.addLayerButton:hover {
+    background: rgb(255, 251, 235);
+    border-color: rgb(120, 53, 15);
+}
+
+.layerForm {
+    background: rgb(255, 251, 235);
+    border: 1px solid rgb(252, 211, 77);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Character Dropdown Styles */
+.characterDropdownContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.characterDropdown {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgb(252, 211, 77);
+    background-color: white;
+    color: rgb(120, 53, 15);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FDBA74%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px top 50%;
+    background-size: 12px auto;
+    transition: all 0.2s ease;
+}
+
+.characterDropdown:hover {
+    border-color: rgb(217, 119, 6);
+}
+
+.characterDropdown:focus {
+    outline: none;
+    border-color: rgb(180, 83, 9);
+    box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.2);
+}
+
+.deleteCharacterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #ef4444;
+    border: none;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.deleteCharacterButton:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Keep other character styles */
+.charactersHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 8px 0;
+}
+
+.charactersHeader h3 {
+    font-size: 14px;
+    color: rgb(120, 53, 15);
+    margin: 0;
+}
+
+/* Keep add character button styles */
+.addCharacterButton {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background-color: rgb(254, 240, 138);
+    border: 1px solid rgb(252, 211, 77);
+    color: rgb(120, 53, 15);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.addCharacterButton:hover {
+    background-color: rgb(252, 211, 77);
+}
+
+/* Drag and Drop styles */
+.droppableContainer {
+    width: 100%;
+}
+
+.dragHandle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    cursor: grab;
+    margin-right: 8px;
+}
+
+.dragHandle:active {
+    cursor: grabbing;
+}
+
+.isDraggingOver {
+    background: rgb(248, 250, 252);
+    border-radius: 8px;
+}
+
+.isDragging {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(226, 232, 240);
+}
+
+/* Style for layer name input */
+.layerNameInput {
+    border: none;
+    flex: 1;
+    font-weight: 500;
+    background: transparent;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.layerNameInput:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.layerStats {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.traitCount {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.backgroundLabel {
+    padding: 2px 6px;
+    background: #dbeafe;
+    color: #2563eb;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.removeLayerButton {
+    padding: 4px;
+    border-radius: 4px;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.removeLayerButton:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
