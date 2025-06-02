@@ -1,0 +1,212 @@
+.container {
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    background: white;
+    border-bottom: 2px solid rgb(252 211 77);
+    position: relative;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: rgb(254 243 199);
+    border: none;
+    border-radius: 0.5rem;
+    color: rgb(120 53 15);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.backButton:hover {
+    background: rgb(120 53 15);
+    color: white;
+    transform: translateX(-4px);
+}
+
+.stepsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid rgb(252 211 77);
+    color: rgb(120 53 15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.navButton:hover:not(.disabled) {
+    background: rgb(120 53 15);
+    border-color: rgb(120 53 15);
+    color: white;
+    transform: scale(1.1);
+}
+
+.navButton.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.navIndicator {
+    position: absolute;
+    top: -24px;
+    font-size: 0.85rem;
+    color: rgb(120 53 15);
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.navButton:hover:not(.disabled) .navIndicator {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    flex: 1;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgb(252 211 77);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.progressBar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    background: rgb(120 53 15);
+    transform: translateY(-50%);
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.stepIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid rgb(252 211 77);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(120 53 15);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.step.active .stepIcon {
+    background: rgb(120 53 15);
+    border-color: rgb(120 53 15);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(120, 53, 15, 0.3);
+}
+
+.stepContent {
+    text-align: center;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.step.active .stepContent {
+    opacity: 1;
+    transform: translateY(4px);
+}
+
+.stepContent h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(120 53 15);
+    margin: 0 0 0.25rem;
+}
+
+.stepContent p {
+    font-size: 0.85rem;
+    color: rgb(120 53 15);
+    margin: 0;
+    line-height: 1.2;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.step.active {
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .stepsWrapper {
+        gap: 1rem;
+    }
+
+    .stepContent {
+        min-width: 80px;
+    }
+
+    .stepContent h3 {
+        font-size: 0.9rem;
+    }
+
+    .stepContent p {
+        font-size: 0.75rem;
+    }
+}

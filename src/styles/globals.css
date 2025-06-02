@@ -1,0 +1,4 @@
+/* Add this to your existing globals.css */
+body {
+    padding-top: 72px; /* Same as header height */
+} 

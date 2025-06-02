@@ -1,0 +1,95 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255 251 235);
+    border-bottom: 1px solid rgb(252 211 77);
+    z-index: 50;
+    height: 72px;
+}
+
+.headerContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(120 53 15);
+    flex-shrink: 0;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Desktop Navigation */
+.desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.navLink {
+    color: rgb(146 64 14);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.navLink:hover,
+.navLink.active {
+    color: rgb(120 53 15);
+    background: rgba(252, 211, 77, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .headerContent {
+        padding: 0 1rem;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .desktopNav {
+        gap: 1rem;
+    }
+
+    .navLink {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .header {
+        background: rgb(120 53 15);
+        border-bottom-color: rgb(146 64 14);
+    }
+
+    .logo,
+    .navLink {
+        color: rgb(254 243 199);
+    }
+}
