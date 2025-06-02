@@ -1,38 +1,51 @@
-import { users, type User, type InsertUser } from "@shared/schema";
-
-// modify the interface with any CRUD methods
-// you might need
+import { Collection, InsertCollection } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getCollection(id: string): Promise<Collection | undefined>;
+  getCollections(): Promise<Collection[]>;
+  createCollection(collection: InsertCollection): Promise<Collection>;
+  updateCollection(id: string, updates: Partial<Collection>): Promise<Collection | undefined>;
+  deleteCollection(id: string): Promise<boolean>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  currentId: number;
+  private collections: Map<string, Collection>;
 
   constructor() {
-    this.users = new Map();
-    this.currentId = 1;
+    this.collections = new Map();
   }
 
-  async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+  async getCollection(id: string): Promise<Collection | undefined> {
+    return this.collections.get(id);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getCollections(): Promise<Collection[]> {
+    return Array.from(this.collections.values());
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createCollection(insertCollection: InsertCollection): Promise<Collection> {
+    const id = `col_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const collection: Collection = {
+      ...insertCollection,
+      id,
+      status: "draft",
+      createdAt: new Date(),
+    };
+    this.collections.set(id, collection);
+    return collection;
+  }
+
+  async updateCollection(id: string, updates: Partial<Collection>): Promise<Collection | undefined> {
+    const collection = this.collections.get(id);
+    if (!collection) return undefined;
+    
+    const updatedCollection = { ...collection, ...updates };
+    this.collections.set(id, updatedCollection);
+    return updatedCollection;
+  }
+
+  async deleteCollection(id: string): Promise<boolean> {
+    return this.collections.delete(id);
   }
 }
 
