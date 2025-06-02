@@ -80,6 +80,7 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "tailwind-merge": "^2.5.4",
+    "tsx": "^4.19.4",
     "web3.storage": "^4.5.5",
     "ws": "^8.14.2"
   },
