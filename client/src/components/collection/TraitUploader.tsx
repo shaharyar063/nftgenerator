@@ -1820,26 +1820,6 @@ const TraitUploader: React.FC<TraitUploaderProps> = ({
         onNext();
     }, [layers, onNext]);
 
-    // Update handleTraitNameChange
-    const handleTraitNameChange = useCallback((layerId: string, traitId: string, newName: string) => {
-        if (!validateTraitName(layerId, newName, traitId)) {
-            toast.error('A trait with this name already exists in this layer');
-            return;
-        }
-        
-        setLayers(prev => prev.map(layer => {
-            if (layer.id === layerId) {
-                return {
-                    ...layer,
-                    traits: layer.traits.map(trait => 
-                        trait.id === traitId ? { ...trait, name: newName } : trait
-                    )
-                };
-            }
-            return layer;
-        }));
-    }, [validateTraitName, handleDuplicateLayer]);
-
     // Add cleanup function
     const cleanupStoredLayerData = useCallback(() => {
         localStorage.removeItem('nft_layers_data');
