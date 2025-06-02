@@ -51,6 +51,7 @@
     "@prisma/client": "^5.22.0",
     "@replit/vite-plugin-cartographer": "^0.2.7",
     "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/express": "^5.0.2",
     "@types/file-saver": "^2.0.7",
     "@types/react-beautiful-dnd": "^13.1.8",
@@ -64,6 +65,7 @@
     "clsx": "^2.1.1",
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.3.1",
+    "drizzle-kit": "^0.31.1",
     "express": "^5.1.0",
     "file-saver": "^2.0.5",
     "hardhat": "^2.19.1",
@@ -86,9 +88,12 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^4.1.8",
+    "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.19.4",
     "vite": "^6.3.5",
     "web3.storage": "^4.5.5",
+    "webpack": "^5.99.9",
     "ws": "^8.14.2"
   },
   "engines": {
