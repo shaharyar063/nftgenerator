@@ -1003,6 +1003,9 @@ const TraitUploader: React.FC<TraitUploaderProps> = ({
     const [previewCombinations, setPreviewCombinations] = useState<Record<string, Trait>[]>([]);
     const [isAddLayerOpen, setIsAddLayerOpen] = useState<boolean>(false);
     const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
+    const [selectedRuleType, setSelectedRuleType] = useState<'require' | 'exclude'>('require');
+    const [selectedSourceLayer, setSelectedSourceLayer] = useState<string | null>(null);
+    const [selectedTargetLayer, setSelectedTargetLayer] = useState<string | null>(null);
     const [showGuide, setShowGuide] = useState(false);
 
     // Effect to filter layers based on active character
@@ -1794,6 +1797,28 @@ const TraitUploader: React.FC<TraitUploaderProps> = ({
             (!currentTraitId || trait.id !== currentTraitId)
         );
     }, [layers]);
+
+    // Add missing handler functions
+    const handleTraitRarityChange = useCallback((layerId: string, traitId: string, value: number) => {
+        updateTraitRarity(layerId, traitId, value);
+    }, []);
+
+    const handleDeleteTrait = useCallback((layerId: string, traitId: string) => {
+        removeTrait(layerId, traitId);
+    }, []);
+
+    const handleTraitNameChange = useCallback((layerId: string, traitId: string, newName: string) => {
+        updateTraitName(layerId, traitId, newName);
+    }, []);
+
+    const handleNext = useCallback(() => {
+        const validation = validateLayers(layers);
+        if (!validation.isValid) {
+            setError(validation.message || 'Please fix the issues before proceeding');
+            return;
+        }
+        onNext();
+    }, [layers, onNext]);
 
     // Update handleTraitNameChange
     const handleTraitNameChange = useCallback((layerId: string, traitId: string, newName: string) => {
